@@ -11,7 +11,7 @@ describe('Test Cases Step 1',function() {
     browser.get('http://gridqa/ss/#!/signup/step1')
     browser.manage().window().maximize();
     browser.waitForAngular();
-        }),
+        }),   
 
     it('GR logo should be present',function(){
         var grlogo = element(by.xpath('//*[@id="wrapper"]/nav/div/div[1]/div/a/img'));
