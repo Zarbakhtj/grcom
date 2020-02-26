@@ -8,7 +8,7 @@ var step5 = require('../Automation/MembershipSteps/MembershipStep5.js').Step5;
 describe('Test Cases Step 1',function() {
    
     it('open browser',function(){ 
-    browser.get('http://gridqa/ss/#!/signup/step1')
+    browser.get('https://gridstaging.globalrescue.com/ss/#!/signup/step1')
     browser.manage().window().maximize();
     browser.waitForAngular();
         }),   
