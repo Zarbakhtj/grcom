@@ -1,4 +1,3 @@
-
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 var currentdate = new Date();
 var reqFolder = "";
@@ -16,23 +15,18 @@ reportTitle: 'Automated Test Report for SS --- Test run on: ' + timeStamp,
 filename: 'Report.html'
 
 });
-
+     
 
 
 exports.config = {
 framework: 'jasmine',
 
-
-
-
 /////////////////////////////////////////////Jasmine Reporter///////////////////////////////////////
-
 beforeLaunch: function() {
 return new Promise(function(resolve){
 reporter.beforeLaunch(resolve);
 });
 },
-
 // Assign the test reporter to each running instance
 onPrepare: function() {
 jasmine.getEnv().addReporter(reporter);
@@ -63,19 +57,16 @@ return new Promise(function(resolve){
 reporter.afterLaunch(resolve.bind(this, exitCode));
 });
 },
-////////////////////////////////////////Jasmine Reporte Ends Here/////////////////////////////
+////////////////////////////////////////Jasmine Reporter Ends Here/////////////////////////////
+
+
 
 
 
 ///////////////////////////////////////////Email part Starts Here/////////////////////////////////
-
-
 onComplete: function() { 
 
 return new Promise(function (fulfill, reject){
-
-//////////////////////////////////////////////////////////////////////////////////
-
 setTimeout(function () {
 var fs = require('fs');
 fs.readdir(reqFolder, function (err, list) {
@@ -89,7 +80,6 @@ attachmentsArray.push(pathJson);
 })
 }, 2000);
 
-///////////////////////////////////////////////////////////////////////////////////
 setTimeout(function () {
 
 var nodemailer = require('nodemailer');
@@ -127,14 +117,11 @@ browser.close();
 }, 4000);
 });
 },
-
-
 ///////////////////////////////////////////////////Email part Ends Here////////////////////////////////////
 
 
 
 //seleniumAddress: 'http://localhost:4444/wd/hub',
-
 jasmineNodeOpts: {
 onComplete: null,
 showColors: true // Use colors in the command line report.
@@ -155,7 +142,19 @@ chromeOptions: {
 
 },
 
+/*
+//////////////////////////////////////Datbase Connection//////////////////////////////////////////////////////////////
+ ConnectDatabase: function(){
+	var mysql = require("mysql")
+	this.connection = mysql.createConnection({
+		host:"gridqa",
+		user:"gr",
+		password:"gr",
+        database:"ss"
+	})
+},  */
 
+///////////////////////////////////////////Database connection part ends here/////////////////////////////////////////////////////////////
 
 
 }
